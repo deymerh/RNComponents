@@ -46,4 +46,9 @@ export const menuItems: Menuitem[] = [
     icon: 'flower-outline',
     component: 'SlidesScreen'
   },
+  {
+    name: 'Theme',
+    icon: 'flask-outline',
+    component: 'ChangeThemeScreen'
+  },
 ]
