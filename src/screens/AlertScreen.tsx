@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Alert, View, Button, StyleSheet } from 'react-native';
 
 import prompt from 'react-native-prompt-android';
 
 import { globalStyles } from '../theme/appTheme';
+import { ThemeContext } from '../context/theme/ThemeContext';
 
 export const AlertScreen = () => {
+  const { theme: { colors } } = useContext(ThemeContext);
   const showAlert = () => {
     Alert.alert(
       "Title",
@@ -45,10 +47,10 @@ export const AlertScreen = () => {
     );
   }
   return (
-    <View style={[globalStyles.paddinGlobal, styles.container]}>
-      <Button title='Alert' onPress={showAlert} />
+    <View style={[globalStyles.paddinGlobal, { ...styles.container, backgroundColor: colors.background }]}>
+      <Button color={colors.primary} title='Alert' onPress={showAlert} />
       <View style={{ marginBottom: 20 }} />
-      <Button title='Alert' onPress={showPrompt} />
+      <Button color={colors.primary} title='Alert' onPress={showPrompt} />
     </View>
   )
 }
